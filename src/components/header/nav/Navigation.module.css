@@ -1,0 +1,25 @@
+.navigation {
+    width: 80%;
+}
+
+.navigationList {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+}
+
+.navigationListItem {
+    text-decoration: none;
+    margin: 10px;
+
+}
+
+.navlink {
+    color: gold;
+    text-decoration: none;
+}
+
+.navlink:active {
+    color: red;
+}

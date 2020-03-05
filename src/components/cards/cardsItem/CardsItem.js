@@ -1,13 +1,18 @@
 import React from 'react';
 import css from './CardsItem.module.css';
+import cartGreen from '../../../assets/cartGreen.png';
 
-const CardsItem = ({ card: { productName = "noneName", description = "none", price = "0" } = {} }) => {
+const CardsItem = ({ card: { img, productName, description, price } = {} }) => {
 
     return (
         <li className={css.cardsItem}>
-            <h2>{productName}</h2>
-            <p>{description}</p>
-            <p>{price}</p>
+            <h2 className={css.productName}>{productName}</h2>
+            <img src={img} alt={productName} className={css.cardImage} />
+            <p className={css.description}>{description}</p>
+            <div className={css.orderBlock}>
+                <p className={css.price}> Price: {price}</p>
+                <img src={cartGreen} alt="cart" className={css.cartGreen} />
+            </div>
         </li>
     );
 }

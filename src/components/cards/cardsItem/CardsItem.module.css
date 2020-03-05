@@ -2,10 +2,48 @@
     border: 1px solid black;
     width: 200px;
     height: 250px;
-    background-color: rebeccapurple;
+    background-color: #F9DF30;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 2px;
-    padding: 5px;
+    padding: 10px;
+}
+
+.productName {
+    font-size: 14px;
+    text-align: center;
+}
+
+.cardImage {
+    height: 60px;
+}
+
+.description {
+    font-size: 10px;
+    text-indent: 10px;
+    text-align: justify;
+    height: 60px;
+}
+
+.orderBlock {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-weight: 800;
+}
+
+.cartGreen {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+
+}
+
+.cartGreen:hover {
+    transform: scale(1.2);
 }
