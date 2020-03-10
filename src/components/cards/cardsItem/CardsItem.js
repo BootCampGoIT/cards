@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react'
 import css from './CardsItem.module.css';
-import cartGreen from '../../../assets/cartGreen.png';
+import ModalBackdrop from '../../modalBackdrop/ModalBackdrop';
+import ModalCard from '../modalCard/ModalCard';
 
-const CardsItem = ({ card: { img, productName, description, price } = {} }) => {
 
-    return (
-        <li className={css.cardsItem}>
-            <h2 className={css.productName}>{productName}</h2>
-            <img src={img} alt={productName} className={css.cardImage} />
-            <p className={css.description}>{description}</p>
-            <div className={css.orderBlock}>
-                <p className={css.price}> Price: {price}</p>
-                <img src={cartGreen} alt="cart" className={css.cartGreen} />
-            </div>
-        </li>
-    );
+
+class CardsItem extends Component {
+    state = {
+        isOpen: false
+    }
+
+    handleOpenCard = () => {
+        this.setState(prevState => ({ isOpen: !prevState.isOpen }))
+    }
+
+    render() {
+        const { card: { img, productName, price }, card } = this.props;
+        return (
+            <>
+                <li className={css.cardsItem} onClick={this.handleOpenCard}>
+                    <h2 className={css.productName}>{productName}</h2>
+                    <img src={img} alt={productName} className={css.cardImage} />
+                    <p className={css.price}> Price: {price}</p>
+                </li>
+                {
+                    this.state.isOpen &&
+                    <ModalBackdrop isOpen={this.state.isOpen} handleOpen={this.handleOpenCard} >
+                        <ModalCard card={card} />
+                    </ModalBackdrop>
+                }
+            </>
+        );
+    }
 }
 
 export default CardsItem;

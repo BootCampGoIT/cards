@@ -4,8 +4,7 @@ import css from './ModalBackdrop.module.css';
 
 class ModalBackdrop extends Component {
     state = {
-        // isOpen: false,
-        isOpen: this.props.isOpen === true ? true : false,
+        isOpen: this.props.isOpen === true ? true : false, //true
     };
 
     componentDidMount() {
@@ -21,12 +20,11 @@ class ModalBackdrop extends Component {
             this.closeBackDrop();
         }
     };
-
     closeBackDrop = () => {
         this.setState({
             isOpen: false
         });
-        this.props.handleOpenCart();
+        this.props.handleOpen();
     };
 
     outsideClick = event => {
@@ -35,10 +33,7 @@ class ModalBackdrop extends Component {
             this.closeBackDrop();
         }
     };
-
     render() {
-
-
         return this.state.isOpen ? (
             <div
                 className={css.lightbox}
@@ -46,8 +41,8 @@ class ModalBackdrop extends Component {
                 onClick={this.outsideClick}
             >
                 <div className={css.form}>
+                    {this.props.children}
                     <button className={css.lightboxBtn} onClick={this.closeBackDrop}>X</button>
-                    {/* your component will be here */}
                 </div>
             </div>) : null;
     }

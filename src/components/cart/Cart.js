@@ -12,12 +12,14 @@ class Cart extends Component {
         this.setState(prevState => ({ isOpen: !prevState.isOpen }))
     }
 
-
     render() {
         return (
             <div className={css.cart}>
                 <img src={cart} alt="cart" className={css.cartIcon} onClick={this.handleOpenCart} />
-                {this.state.isOpen && <ModalBackdrop isOpen={this.state.isOpen} handleOpenCart={this.handleOpenCart} />}
+                {this.state.isOpen &&
+                    <ModalBackdrop isOpen={this.state.isOpen} handleOpen={this.handleOpenCart} >
+                        <h2>Carts Children</h2>
+                    </ModalBackdrop>}
             </div>
         );
     }

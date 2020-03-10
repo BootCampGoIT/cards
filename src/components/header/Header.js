@@ -1,7 +1,6 @@
 import React from 'react';
 import css from "./Header.module.css"
 import Cart from '../cart/Cart';
-import Button from '../button/Button';
 import Navigation from './nav/Navigation';
 
 const Header = () => {
